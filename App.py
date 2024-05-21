@@ -10,7 +10,7 @@ user_data = {
 
 # Function to display mindful usage tracking
 def mindful_usage_tracking(user_data):
-    st.header("Mindful Usage Tracking")
+    st.write("### Mindful Usage Tracking")
     st.write("**Daily Usage:**")
     st.write(f"Total: {user_data['daily_usage']} minutes")
 
@@ -39,7 +39,7 @@ def mindful_usage_tracking(user_data):
 
 # Function to display positive content curation
 def positive_content_curation():
-    st.header("Positive Content Curation")
+    st.write("### Positive Content Curation")
     st.write("**Well-Being Feed:**")
     st.image("https://via.placeholder.com/150", caption="Positive quotes")
     st.image("https://via.placeholder.com/150", caption="Mental health tips")
@@ -47,7 +47,7 @@ def positive_content_curation():
 
 # Function to display educational integration
 def educational_integration():
-    st.header("Educational Integration")
+    st.write("### Educational Integration")
     st.write("**Learning Modules:**")
     try:
         st.video("https://www.youtube.com/embed/dQw4w9WgXcQ")
@@ -58,7 +58,7 @@ def educational_integration():
 
 # Function to display community building features
 def community_building():
-    st.header("Community Building")
+    st.write("### Community Building")
     st.write("**Join Support Groups:**")
     support_groups = ["Study Buddies", "Mental Health Support", "Creative Minds"]
     selected_group = st.selectbox("Choose a support group to join", support_groups)
@@ -66,7 +66,7 @@ def community_building():
 
 # Function to display parental controls
 def parental_controls():
-    st.header("Parental Controls")
+    st.write("### Parental Controls")
     st.write("**Activity Reports for Parents:**")
     st.write("Provide summaries and filters for parents to monitor and manage their child's app usage.")
 
@@ -74,11 +74,18 @@ def parental_controls():
 def main():
     st.title("TikTok Well-Being Companion App")
     
-    mindful_usage_tracking(user_data)
-    positive_content_curation()
-    educational_integration()
-    community_building()
-    parental_controls()
+    tabs = st.tabs(["Mindful Usage Tracking", "Positive Content Curation", "Educational Integration", "Community Building", "Parental Controls"])
+
+    with tabs[0]:
+        mindful_usage_tracking(user_data)
+    with tabs[1]:
+        positive_content_curation()
+    with tabs[2]:
+        educational_integration()
+    with tabs[3]:
+        community_building()
+    with tabs[4]:
+        parental_controls()
 
     st.write("---")
     st.write("Designed with Relational and Virtue Ethics in mind to promote healthier social media habits.")
