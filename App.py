@@ -73,12 +73,12 @@ def parental_controls():
 # Main app function
 def main():
     st.title("TikTok Well-Being Companion App")
-
-    mindful_usage_tracking(user_data)
-    positive_content_curation()
-    educational_integration()
-    community_building()
-    parental_controls()
+    mindful, poscontent, eduint, combuild, pc = st.tabs(["Mindful Usage Tracking", "Positive Content", "Educational Integration", "Community Building", "Parental Controls"])
+    mindful.mindful_usage_tracking(user_data)
+    poscontent.positive_content_curation()
+    eduint.educational_integration()
+    combuild.community_building()
+    pc.parental_controls()
 
     st.write("---")
     st.write("Designed with Relational and Virtue Ethics in mind to promote healthier social media habits.")
