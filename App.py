@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import matplotlib.pyplot as plt
 
 # Mock user data
 user_data = {
@@ -9,16 +8,6 @@ user_data = {
     "usage_goal": 90,  # in minutes
 }
 
-# Function to plot content distribution
-def plot_content_distribution(distribution):
-    labels = distribution.keys()
-    sizes = distribution.values()
-    colors = ['#ff9999','#66b3ff','#99ff99','#ffcc99']
-    fig1, ax1 = plt.subplots()
-    ax1.pie(sizes, labels=labels, colors=colors, autopct='%1.1f%%', startangle=90)
-    ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-    st.pyplot(fig1)
-
 # Function to display mindful usage tracking
 def mindful_usage_tracking(user_data):
     st.header("Mindful Usage Tracking")
@@ -26,7 +15,15 @@ def mindful_usage_tracking(user_data):
     st.write(f"Total: {user_data['daily_usage']} minutes")
 
     st.write("**Content Type Distribution:**")
-    plot_content_distribution(user_data["content_type_distribution"])
+    content_types = list(user_data["content_type_distribution"].keys())
+    content_values = list(user_data["content_type_distribution"].values())
+
+    df = pd.DataFrame({
+        'Content Type': content_types,
+        'Minutes': content_values
+    })
+
+    st.bar_chart(df.set_index('Content Type'))
 
     st.write("**Set Your Usage Goal:**")
     new_goal = st.slider("Daily Usage Goal (minutes)", 30, 180, user_data["usage_goal"])
