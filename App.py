@@ -49,9 +49,12 @@ def positive_content_curation():
 def educational_integration():
     st.header("Educational Integration")
     st.write("**Learning Modules:**")
-    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ", caption="Digital Literacy")
-    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ", caption="Mental Health Awareness")
-    st.video("https://www.youtube.com/watch?v=dQw4w9WgXcQ", caption="Ethical Online Behavior")
+    try:
+        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ", caption="Digital Literacy")
+        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ", caption="Mental Health Awareness")
+        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ", caption="Ethical Online Behavior")
+    except Exception as e:
+        st.error(f"Failed to load video: {e}")
 
 # Function to display community building features
 def community_building():
