@@ -50,9 +50,9 @@ def educational_integration():
     st.header("Educational Integration")
     st.write("**Learning Modules:**")
     try:
-        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ", caption="Digital Literacy")
-        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ", caption="Mental Health Awareness")
-        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ", caption="Ethical Online Behavior")
+        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ")
+        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ")
+        st.video("https://www.youtube.com/embed/dQw4w9WgXcQ")
     except Exception as e:
         st.error(f"Failed to load video: {e}")
 
