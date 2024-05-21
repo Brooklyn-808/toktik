@@ -5,7 +5,7 @@ import pandas as pd
 user_data = {
     "daily_usage": 120,  # in minutes
     "content_type_distribution": {"Educational": 30, "Entertainment": 70, "Creative": 20},
-    "usage_goal": 90,  # in minutes
+    "usage_goal": 30,  # in minutes
 }
 
 # Function to display mindful usage tracking
@@ -26,7 +26,7 @@ def mindful_usage_tracking(user_data):
     st.bar_chart(df.set_index('Content Type'))
 
     st.write("**Set Your Usage Goal:**")
-    new_goal = st.slider("Daily Usage Goal (minutes)", 30, 180, user_data["usage_goal"])
+    new_goal = st.slider("Daily Usage Goal (minutes)", 0, 90, user_data["usage_goal"])
     if new_goal != user_data["usage_goal"]:
         user_data["usage_goal"] = new_goal
         st.success(f"Usage goal updated to {new_goal} minutes")
